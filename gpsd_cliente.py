@@ -1,5 +1,9 @@
-#Client gpsd_nmea
- 
+# Client gpsd_nmea
+# Python 3.6.6
+# Windows 10
+# Noviembre 2018
+# Correr pip install pynmea2
+
 import socket       
 import sys        
 import time
@@ -36,8 +40,9 @@ while 1:
             msg = pynmea2.parse(line_data)  # Extancion de informacion de sentencia nmea
             os.system('cls')
             total = msg.altitude + float(msg.geo_sep)
-
-            print('\nGPSD cliente\n')
+        
+            print('GPSD cliente')
+            print ('Socket Conectado a ip: ' + remote_ip + '  puerto: ' + str(port) + '\n')
             print('Lat:       ' + str(msg.latitude))
             print('Lon:       ' + str(msg.longitude))
             print('Ele:       ' + str(total))
