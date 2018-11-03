@@ -36,19 +36,18 @@ while 1:
             msg = pynmea2.parse(line_data)  # Extancion de informacion de sentencia nmea
             os.system('cls')
             total = msg.altitude + float(msg.geo_sep)
-            print('')
-            print('GPSD cliente')
-            print('')
+
+            print('\nGPSD cliente\n')
             print('Lat:       ' + str(msg.latitude))
             print('Lon:       ' + str(msg.longitude))
             print('Ele:       ' + str(total))
             print('Sat n:     ' + str(msg.num_sats))
-            print('Gps qua:   ' + str(msg.gps_qual))
+            print('Gps Qual:   ' + str(msg.gps_qual))
             print('')
 
         line_data = ''                      # Limpiamos linea de sentencia procesada
-        
+    
 s.close()
-print('\nTerminated by user\nGood Bye.\n')
+print('\nTerminado por Usuario.\n')
 
 time.sleep(1)
