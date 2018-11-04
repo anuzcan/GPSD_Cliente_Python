@@ -15,19 +15,23 @@ remote_ip   = '192.168.43.47';  #Cambiar a ip del servidor propio
 port        = 9001;             #Cambiar al puerto del servidor
 
 line_data   = ''
+s = ''
 
+def connect_server_gpsd(host,port):
+    try:
+                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    except socket.error:
+                print  ('Falla al crear Socket')
+                return -1
+                sys.exit()
+    print ('Socket Creado')
 
-#crear INET, STREAMing socket
-try:
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-except socket.error:
-    print  ('Falla al crear Socket')
-    sys.exit()
-print ('Socket Creado')
- 
-#Conectar a servidor remoto
-s.connect((remote_ip , port))
-print ('Socket Conectado a ip: ' + remote_ip + '  puerto: ' + str(port))
+    s.connect((host , port))
+    print ('Socket Conectado a ip: ' + remote_ip + '  puerto: ' + str(port))
+    return s
+    pass
+
+s = connect_server_gpsd(remote_ip,port)
 
 try:
     while 1:
