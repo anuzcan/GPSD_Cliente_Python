@@ -11,7 +11,7 @@ import pynmea2
 import os
 
  
-remote_ip   = '192.168.42.1';  #Cambiar a ip del servidor propio
+remote_ip   = '192.168.43.47';  #Cambiar a ip del servidor propio
 port        = 9001;             #Cambiar al puerto del servidor
 
 line_data   = ''
@@ -56,6 +56,7 @@ try:
                 print('')
 
             line_data = ''                      # Limpiamos linea de sentencia procesada
+
 except(KeyboardInterrupt, SystemExit):
     s.close()
     
